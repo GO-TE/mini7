@@ -1,0 +1,90 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Ask Chat-GPT</title>
+        <link rel="stylesheet" href="{% static 'selfchatgpt/style.css' %}" />
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </head>
+    <body>
+        <div class="chat-container">
+            <div class="chat-box">
+                <img id="back-button" src="{% static 'selfchatgpt/images/arrow.png' %}" alt="back">
+                <div id="chat-content">
+                    {% for message in chat_history %}
+                        <div class="message user-message">{{ message.0 }}</div>
+                        <div class="message bot-message">{{ message.1 }}</div>
+                    {% endfor %}
+                </div>
+                <div class="input-area">
+                    <input
+                        name="question"
+                        type="text"
+                        id="user-input"
+                        placeholder="Type a message..."
+                    />
+                    {% comment %} <button id="last-chat-button">지난 대화</button> {% endcomment %}
+                    <button id="send-button">Send</button>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function scrollToBottom() {
+                const chatContent = document.getElementById('chat-content');
+                chatContent.scrollTop = chatContent.scrollHeight;
+            }
+
+            $(document).ready(function () {
+                scrollToBottom();
+                $("#send-button").click(function () {
+                    sendMessage();
+                });
+
+                $("#user-input").keypress(function (event) {
+                    if (event.which == 13) {
+                        // Enter key pressed
+                        sendMessage();
+                    }
+                });
+
+                $("#back-button").click(function () {
+                    window.history.back(); // 이전 페이지로 돌아가는 기능
+                });
+                
+                
+                function sendMessage() {
+                    var userMessage = $("#user-input").val();
+                    if (userMessage.trim() === "") return;
+                    $("#chat-content").append(
+                        '<div class="message user-message">' +
+                            userMessage +
+                            "</div>"
+                    );
+                    scrollToBottom();
+                    $("#user-input").val("");
+
+                    $.ajax({
+                        type: "POST",
+                        url: "{% url 'selfchatgpt2:chatbot' %}",
+                        data: {
+                            message: userMessage,
+                            csrfmiddlewaretoken: "{{ csrf_token }}",
+                        },
+                        success: function (response) {
+                            $("#chat-content").append(
+                                '<div class="message bot-message">' +
+                                    response.response +
+                                    "</div>"
+                            );
+                            scrollToBottom();
+                        },
+                    });
+                }
+            });
+        </script>
+    </body>
+</html>

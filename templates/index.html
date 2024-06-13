@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+    {% block content %}
+    <div class="cover-help">
+        <div class="cover-container">
+            <div class="help-txt">
+                <h1 class="tit-msg">
+                    <b class="black"> 안녕하세요,</b> 차기 에이블러님!
+                    <br>
+                    <b class="point">AIVLE ChatBot</b>
+                    이 
+                    <br class="table-only-1024">
+                    도와드릴게요!
+                    <br>
+                </h1>
+            </div>
+            <button type="button" class="help-btn" onclick="location.href='/selfchatgpt2/'"><h2>AIVLE Chatbot</h2>
+        </div>
+    </div>
+    <!-- 부트스트랩 및 자바스크립트 링크 -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+{% endblock %}

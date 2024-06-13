@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIVLE School</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'base.css' %}">
+</head>
+<body>
+    <header class="bg-light py-3 mb-4">
+        <div class="container">
+            <a href="/"><img src="https://aivle.kt.co.kr/tpl/011/img/common/logo.png" alt="AIVLE School Logo" class="img-fluid"></a>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/chatgpt/">단발성 질문, 답변 페이지</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/selfchatgpt/">단발성 질문, 답변 페이지(답변 로그 저장)</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/selfchatgpt2/">연속성 질문, 답변 페이지(세션별 저장)</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/vectordb/">VectorDB 관리</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/selfchatgpt/history">Q&A 이력 조회</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer class="bg-dark py-4 mt-5 text-center">
+        <div class="container">
+            <p class="mb-1">&copy; 2024 KT Corp. All rights reserved.</p>
+            <p class="mb-0">Contact: guswls2120@gmail.com</p>
+        </div>
+        <div class="social-buttons">
+            <a class="sosial_btn4" href="https://pf.kakao.com/_pbexhxj" target="_blank">
+                <img alt src="https://aivle.kt.co.kr/tpl/011/img/common/social_btn_4.png">
+            </a>
+            <a class="sosial_btn3" href="https://www.youtube.com/playlist?list=PL_WCuvyChN3giYr6Xa2gWMOvRjDUrfb0a" target="_blank">
+                <img alt src="https://aivle.kt.co.kr/tpl/011/img/common/social_btn_3.png">
+            </a>
+            <a class="sosial_btn2" href="https://www.instagram.com/aivlestory?igshid=YmMyMTA2M2Y%3D" target="_blank">
+                <img alt src="https://aivle.kt.co.kr/tpl/011/img/common/social_btn_2.png">
+            </a>
+            <a class="sosial_btn1" href="https://cafe.naver.com/aivleschool" target="_blank">
+                <img alt src="https://aivle.kt.co.kr/tpl/011/img/common/social_btn_1.png">
+            </a>
+        </div>
+    </footer>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

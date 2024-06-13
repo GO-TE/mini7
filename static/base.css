@@ -1,0 +1,73 @@
+/* Base styling */
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+}
+
+/* Header */
+header img {
+    max-width: 150px;
+}
+
+header nav .nav-link {
+    color: #555; /* Slightly darker for better readability */
+    font-weight: 500;
+    font-size: 16px;
+}
+
+header nav .nav-link:hover {
+    color: #007bff; /* Bootstrap primary color */
+}
+
+/* Footer */
+footer {
+    background-color: gray;
+    padding: 20px 0;
+}
+
+footer p {
+    margin: 0;
+    color: #555; /* Slightly darker for better readability */
+    font-size: 14px;
+}
+
+/* Flexbox settings to keep footer at bottom */
+html, body {
+    height: 100%;
+}
+
+.d-flex {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-fill {
+    flex: 1 0 auto;
+}
+
+footer {
+    position: relative;
+    border-top: 1px solid #e0e0e0;
+    padding-bottom: 40px;
+}
+
+.social-buttons {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
+
+.social-buttons a {
+    margin: 0 5px;
+}
+
+.social-buttons img {
+    width: 30px;
+    height: auto;
+}
+
+footer .container p {
+    margin: 0.5rem 0;
+    color: white;
+}

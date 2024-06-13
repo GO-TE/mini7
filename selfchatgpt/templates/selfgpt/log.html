@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="container table-container">
+        <h2 class="text-center">Q&A 이력 조회</h2>
+        <form action='search_log' method='post' class="date-search">
+            {% csrf_token %}
+            <label for="spdate"> 
+                <input id="spdate"
+                       type="datetime-local" 
+                       name="spdate"
+                       max="2077-06-20"
+                       min="2024-06-01"
+                       value="2024-06-01">
+            </label>
+            <label for="epdate">부터
+                <input id="epdate"
+                       type="datetime-local"
+                       name="epdate"
+                       max="2077-06-20"
+                       min="2024-06-01"
+                       value="2024-06-01">
+            </label>
+            까지
+            <button type="submit" class="btn">조회하기</button>
+        </form>
+        
+        <table class="table table-bordered table-hover">
+            <thead class="thead">
+                <tr>
+                    <th>날짜</th>
+                    <th>질의</th>
+                    <th>연관도1</th>
+                    <th>연관도2</th>
+                    <th>연관도3</th>
+                    <th>답변</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for his in history %}
+                <tr>
+                    <td>{{ his.datetime }}</td>
+                    <td>{{ his.query }}</td>
+                    <td>{{ his.sim1 }}</td>
+                    <td>{{ his.sim2 }}</td>
+                    <td>{{ his.sim3 }}</td>
+                    <td>{{ his.answer }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+<link rel="stylesheet" href="{% static 'css/log.css' %}">
+{% endblock %}

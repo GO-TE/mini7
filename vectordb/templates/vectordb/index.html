@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content%}
+        <div class="container">
+            <h1>Vector DB Management</h1>
+            <div class="form-group">
+                <h2>CSV 업로드</h2>
+                <input type="file" id="csv-file" />
+                <button id="upload-csv-button">제출</button>
+            </div>
+        </div>
+        <link rel="stylesheet" href="{% static 'vectordb/style.css' %}" />
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="{% static 'vectordb/script.js' %}"></script>
+        <script type="text/javascript">
+            var csrfToken = "{{ csrf_token }}";
+            var uploadCsvUrl = "{% url 'vectordb:upload_csv' %}";
+        </script>
+{% endblock %}

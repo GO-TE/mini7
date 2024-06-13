@@ -1,0 +1,84 @@
+h1 a {
+    color: #fff;
+    text-decoration: none;
+}
+h2 {
+    color: white;
+}
+
+
+p.main {
+    background: darkgray;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: white;
+}
+a {
+    color: blue;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+.cover-help {
+    background-image: url('https://aivle.kt.co.kr/tpl/011/img/main/main_visual_new.png');
+    padding: 50px 0;
+    text-align: center;
+    height: 616px;
+}
+
+.help-txt .tit-msg {
+    display: inline-block;
+    font-size: 40px;
+    color: white;
+    line-height: 62PX;
+    font-weight: 700;
+    text-align: center;
+    word-break: keep-all;
+}
+.tit-msg {
+    color: white;
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    line-height: 50px;
+}
+
+.black{
+    color: #203f5d;
+}
+
+.point {
+    color: #38b8b2;
+}
+
+#submit{
+    background-color: #38b8b2;
+}
+
+.help-btn {
+    margin-top: 100px;
+    background-color: #38b8b2;
+    border: none; /* Remove borders */
+    color: white; /* White text */
+    padding: 15px 32px; /* Some padding */
+    text-align: center; /* Centered text */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Make the container inline-block */
+    font-size: 16px; /* Increase font size */
+    margin: 4px 2px; /* Some margin */
+    cursor: pointer; /* Pointer/hand icon */
+    border-radius: 25px; /* Rounded corners */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transitions */
+}
+
+.help-btn:hover {
+    background-color: #2ecac2; /* Darker green on hover */
+    transform: scale(1.05); /* Slightly larger on hover */
+}
+
+.help-btn h2 {
+    margin: 0; /* Remove default margin of h2 */
+    padding: 0; /* Remove default padding of h2 */
+}
